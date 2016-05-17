@@ -1,0 +1,42 @@
+﻿@model List<Test2.Models.CartItemViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Products</h2>
+@using (Html.BeginForm("Cart", "Products", FormMethod.Post))
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.LabelFor(cartItemViewModel => cartItemViewModel[0].ItemId)
+            </th>
+            <th>
+                @Html.LabelFor(cartItemViewModel => cartItemViewModel[0].ItemPrice)
+            </th>
+            <th>
+                @Html.LabelFor(cartItemViewModel => cartItemViewModel[0].Quantity)
+            </th>
+        </tr>
+
+        @for (int i = 0; i < Model.Count; i++)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(cartItemViewModel => cartItemViewModel[i].ItemId)
+                </td>
+                <td>
+                    @Html.DisplayFor(cartItemViewModel => cartItemViewModel[i].ItemPrice)
+                </td>
+                <td>
+                    @Html.TextBoxFor(cartItemViewModel => cartItemViewModel[i].Quantity, new { type = "number", min = "0", max = "9999" })
+                    @Html.HiddenFor(cartItemViewModel => cartItemViewModel[i].ItemId)
+                </td>
+            </tr>
+        }
+    </table>
+    <p>
+        <input type="submit" value="To Cart" class="btn btn-default" />
+    </p>
+}
+

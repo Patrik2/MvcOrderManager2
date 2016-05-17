@@ -1,0 +1,42 @@
+﻿@model OrdersApp.Order
+
+<h2>Order</h2>
+
+@Html.ActionLink("Buy Some Other Stuff", "Index")
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(order => order.OrderItems[0].Product.ItemId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(order => order.OrderItems[0].Product.ItemPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(order => order.OrderItems[0].Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(order => order.OrderItems[0].TotalPrice)
+        </th>
+    </tr>
+
+    @for (int i = 0; i < Model.OrderItems.Count; i++)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(order => order.OrderItems[i].Product.ItemId)
+            </td>
+            <td>
+                @Html.DisplayFor(order => order.OrderItems[i].Price)
+            </td>
+            <td>
+                @Html.DisplayFor(order => order.OrderItems[i].Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(order => order.OrderItems[i].TotalPrice)
+            </td>
+        </tr>
+    }
+</table>
+
+
