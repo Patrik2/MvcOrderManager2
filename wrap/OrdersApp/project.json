@@ -1,0 +1,15 @@
+{
+  "version": "1.0.0-*",
+  "frameworks": {
+    "net451": {
+      "wrappedProject": "../../OrdersApp/OrdersApp.csproj",
+      "bin": {
+        "assembly": "../../OrdersApp/obj/{configuration}/OrdersApp.dll",
+        "pdb": "../../OrdersApp/obj/{configuration}/OrdersApp.pdb"
+      },
+      "dependencies": {
+        "EntityFramework": "6.1.3"
+      }
+    }
+  }
+}

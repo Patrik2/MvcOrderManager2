@@ -3,6 +3,7 @@ using Microsoft.Practices.Unity;
 using Unity.Mvc3;
 using OrdersApp;
 using Test2.Controllers;
+using Test2.Interfaces;
 
 namespace Test2
 {
@@ -25,7 +26,9 @@ namespace Test2
                       
             container.RegisterType<IOrderManager, OrderManager>();
             container.RegisterType<IOrderContext, OrderContext>();
-            container.RegisterType<IController, ProductsController>("Products");
+            container.RegisterType<IOrderServices, OrderServices>();
+            container.RegisterType<ICartController, CartController>();
+            //container.RegisterType<IController, ProductsController>("Products");
 
             return container;
         }

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test2", "Test2\Test2.csproj", "{E1BFB8DF-265E-4E81-9DEB-12C27B2A964A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersAppMVC", "Test2\OrdersAppMVC.csproj", "{E1BFB8DF-265E-4E81-9DEB-12C27B2A964A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrdersApp", "OrdersApp\OrdersApp.csproj", "{A5B99072-D102-44CD-8839-CFBAAF8ABFE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OrderAppMVCTest", "OrderAppMVCTest\OrderAppMVCTest.csproj", "{7C9DB51D-A70B-45A6-8AE8-808D9DB655D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{A5B99072-D102-44CD-8839-CFBAAF8ABFE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5B99072-D102-44CD-8839-CFBAAF8ABFE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5B99072-D102-44CD-8839-CFBAAF8ABFE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C9DB51D-A70B-45A6-8AE8-808D9DB655D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C9DB51D-A70B-45A6-8AE8-808D9DB655D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C9DB51D-A70B-45A6-8AE8-808D9DB655D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C9DB51D-A70B-45A6-8AE8-808D9DB655D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

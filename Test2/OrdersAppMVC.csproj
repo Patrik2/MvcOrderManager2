@@ -216,16 +216,18 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IStorageCartController.cs" />
     <Compile Include="Migrations\201604201418330_firstMigration.cs" />
     <Compile Include="Migrations\201604201418330_firstMigration.Designer.cs">
       <DependentUpon>201604201418330_firstMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\CartItemViewModel.cs" />
+    <Compile Include="Models\CartItemViewModel2.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ProductsAndCartItemViewModel.cs" />
@@ -297,6 +299,7 @@
     <Content Include="Views\Products\CreateOrder.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Products\_Products.cshtml" />
+    <Content Include="Views\Products\NullElementView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

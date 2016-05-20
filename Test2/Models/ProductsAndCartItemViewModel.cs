@@ -6,9 +6,11 @@ using System.Web;
 
 namespace Test2.Models
 {
-    public class ProductsAndCartItemViewModel
+    public class ProductsAndCartItemViewModel2
     {
-         public IList<CartItemViewModel> CartItemViewModels { get; set; }
-         public IList<CartItem> CartItems { get; set; }
+         public List<CartItemViewModel> CartItemViewModels { get; set; }
+         public List<CartItem> CartItems { get; set; }
+
+        
     }
 }
