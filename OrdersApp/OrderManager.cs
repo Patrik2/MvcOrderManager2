@@ -66,7 +66,7 @@ namespace OrdersApp
             };
             foreach (var cartItem in cartItems)
             {
-                Product product = SearchProduct(cartItem.ItemId);
+                Product product = SearchProduct(cartItem.ProductItemId);
                 if (product == null)
                 {
                     throw new OrderCreationException("Na sklade už požadovaný tovar nie je!!");

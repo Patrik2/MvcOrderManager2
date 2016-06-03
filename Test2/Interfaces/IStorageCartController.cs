@@ -6,7 +6,7 @@ using System.Web;
 
 namespace Test2.Interfaces
 {
-    public interface IStorageCartController2
+    public interface IStorageCart
     {
         List<CartItem> CurrentCart { get; set; }
     }

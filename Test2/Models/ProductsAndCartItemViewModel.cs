@@ -10,7 +10,5 @@ namespace Test2.Models
     {
          public List<CartItemViewModel> CartItemViewModels { get; set; }
          public List<CartItem> CartItems { get; set; }
-
-        
     }
 }

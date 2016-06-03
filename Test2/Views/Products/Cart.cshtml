@@ -1,5 +1,4 @@
-﻿@*@model List<OrdersApp.CartItem>*@
-@model Test2.Models.ProductsAndCartItemViewModel
+﻿@model Test2.Models.ProductsAndCartItemViewModel
 
 <h2>Cart</h2>
 
@@ -13,7 +12,7 @@
                 @Html.DisplayNameFor(cartItem => cartItem.CartItems[0].Quantity)
             </th>
             <th>
-                @Html.DisplayNameFor(cartItem => cartItem.CartItems[0].ItemId)
+                @Html.DisplayNameFor(cartItem => cartItem.CartItems[0].ProductItemId)
             </th>
             <th></th>
         </tr>
@@ -22,22 +21,18 @@
             <tr>
                 <td>
                     @Html.TextBoxFor(cartItems => Model.CartItems[i].Quantity, new { @Value = Model.CartItems[i].Quantity, min = "1", type = "number" })
-                    @*@Html.Hidden(String.Format("[{0}].ItemId", i), Model[i].ItemId);*@
-                    @*<input type="hidden" name="[@i].ItemId" value="@Model[i].ItemId" />*@
-                    @Html.HiddenFor(cartItems => Model.CartItems[i].ItemId)
-                    @*@Html.EditorFor(cartItems => cartItems[i].Quantity, new { htmlAttributes = new { min = "1", max = "9999" } })*@
+                    @Html.HiddenFor(cartItems => Model.CartItems[i].ProductItemId)
                 </td>
                 <td>
-                    @Html.DisplayFor(cartItems => Model.CartItems[i].ItemId)
-                    @*@Html.HiddenFor(cartItems => cartItems[i].ItemId)*@
+                    @Html.DisplayFor(cartItems => Model.CartItems[i].ProductItemId)
                 </td>
                 <td>
-                    @Html.ActionLink("Remove", "Remove", new { itemID = Model.CartItems[i].ItemId })
+                    @Html.ActionLink("Remove", "Remove", new { itemID = Model.CartItems[i].ProductItemId })
                 </td>
             </tr>
         }
     </table>
     <input type="submit" value="Submit Order" class="btn btn-primary" />
 }
-@Html.Partial("~/Views/Products/Index.cshtml", Model.CartItemViewModels )
+@Html.Partial("~/Views/Products/Index.cshtml",Model.CartItemViewModels)
 @*@Html.Partial("~/Views/Products/Index.cshtml", Model.Select(x => new Test2.Models.CartItemViewModel { Quantity = x.Quantity, ItemId = x.ItemId }).ToList())*@

@@ -9,7 +9,7 @@
     <table class="table">
         <tr>
             <th>
-                @Html.LabelFor(cartItemViewModel => cartItemViewModel[0].ItemId)
+                @Html.LabelFor(cartItemViewModel => cartItemViewModel[0].ProductItemId)
             </th>
             <th>
                 @Html.LabelFor(cartItemViewModel => cartItemViewModel[0].ItemPrice)
@@ -23,14 +23,14 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(cartItemViewModel => cartItemViewModel[i].ItemId)
+                    @Html.DisplayFor(cartItemViewModel => cartItemViewModel[i].ProductItemId)
                 </td>
                 <td>
                     @Html.DisplayFor(cartItemViewModel => cartItemViewModel[i].ItemPrice)
                 </td>
                 <td>
                     @Html.TextBoxFor(cartItemViewModel => cartItemViewModel[i].Quantity, new { type = "number", min = "0", max = "9999" })
-                    @Html.HiddenFor(cartItemViewModel => cartItemViewModel[i].ItemId)
+                    @Html.HiddenFor(cartItemViewModel => cartItemViewModel[i].ProductItemId)
                 </td>
             </tr>
         }

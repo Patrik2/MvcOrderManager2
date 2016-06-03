@@ -12,6 +12,6 @@ namespace OrdersApp
         [Range(0,9999)]
         public int Quantity { get; set; }
 
-        public int ItemId { get; set; }
+        public int ProductItemId { get; set; }
     }
 }

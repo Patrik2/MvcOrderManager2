@@ -6,161 +6,53 @@ using System.Web.Mvc;
 using OrdersApp;
 using Test2.Models;
 using System.Net;
+using Test2.Interfaces;
 
 namespace Test2.Controllers
 {
     public class ProductsController : Controller
     {
         private IOrderServices orderServices;
-        public ProductsController(IOrderServices orderServices)
+        private ICartServices cartServices;
+        public ProductsController(IOrderServices orderServices, ICartServices cartServices)
         {
+            this.cartServices = cartServices;
             this.orderServices = orderServices;
         }
-        public ActionResult Index()
+        public ViewResult Index()
         {
-            return View("Index", orderServices.GetListCartItemViewModel());
+            return View("Index", cartServices.GetListCartItemViewModel());
         }
-        public ActionResult Cart()
+        public ViewResult Cart()
         {
-            return View("Cart", orderServices.GetModelForCartView());
+            return View("Cart", cartServices.GetModelForCartView());
         }
-
         [HttpPost]
-        public ActionResult Cart(List<CartItem> cartItems)
+        public ViewResult Cart(List<CartItem> cartItems)
         {
-            orderServices.SetCart(cartItems);
+            cartServices.SetCart(cartItems);
             return Cart();
         }
         [HttpPost]
-        public ActionResult CreateOrder(List<CartItem> cartItems)
+        public ViewResult CreateOrder(List<CartItem> cartItems)
         {
             var order = orderServices.CreateOrder(cartItems);
-            return View(order);
+            return View("CreateOrder",order);
         }
-        public ActionResult Remove(int itemID)
+        public RedirectToRouteResult Remove(int itemID)
         {
-            orderServices.RemoveItemFromCurrentCart(GetCartItem(itemID));
+            cartServices.RemoveItemFromCurrentCart(itemID);
             return RedirectToAction("Cart");
         }
-        private CartItem GetCartItem(int itemID)
-        {
-            return (from cartitem in orderServices.GetCurrentCart()
-                    where itemID == cartitem.ItemId
-                    select cartitem).Single();
-        }
-        public ActionResult Details(int id)
-        {
-            var product = orderServices.FindProduct(id);
-            if (product == null)
-            {
-                return NullElementView();
-            }
-            return View(product);
-        }
-        public ActionResult NullElementView()
-        {
-            return View();
-        }
-        public ActionResult Create()
-        {
-            return View();
-        }
-        // POST: Products/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Create(Product product)
+        //private CartItem GetCartItem(int itemID)
         //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        orderContext.Products.Add(product);
-        //        orderContext.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
-        //    return View(product);
+        //    return (from cartitem in cartServices.GetCurrentCart()
+        //            where itemID == cartitem.ItemId
+        //            select cartitem).Single();
         //}
-        // GET: Products/Edit/5
-        public ActionResult Edit(int itemID)
-        {
-            CartItem cartItem = GetCartItem(itemID);
-            if (cartItem == null)
-            {
-                return NullElementView();
-            }
-            return View(cartItem);
-        }
-        [HttpPost]
-        public ActionResult Edit(List<CartItem> cartItems)
-        {
-            return RedirectToAction("Cart");
-        }
-        //public ActionResult Edit(CartItem cartItem)
+        //public ViewResult Create()
         //{
-        //    var oldCartItem = (from cartitem in StoredCartItems
-        //                       where cartItem.ItemId == cartitem.ItemId
-        //                       select cartitem).Single();
-
-        //    StoredCartItems.Remove(oldCartItem);
-        //    StoredCartItems.Add(cartItem);
-        //    return RedirectToAction("Cart");
-        //}
-
-
-
-        // POST: Products/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult Edit([Bind(Include = "ItemId,Quantity")] CartItem cartItem)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        //orderContext.Entry(cartItem).State = EntityState.Modified;
-        //        //orderContext.SaveChanges();
-        //        //var listCart = StoredCartItems;
-        //        //var car = from p in listCart
-        //        //          where cartItem.ItemId == 
-        //        //listCart.Remove()
-
-        //        //return RedirectToAction("Cart");
-        //    }
-        //    return View(cartItem);
-        //}
-
-        // GET: Products/Delete/5
-        //public ActionResult Delete(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Product product = orderContext.Products.Find(id);
-        //    if (product == null)
-        //    {
-        //        //return HttpNotFound();
-        //        return NullElementView();
-        //    }
-        //    return View(product);
-        //}
-        //// POST: Products/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public ActionResult DeleteConfirmed(int id)
-        //{
-        //    Product product = orderContext.Products.Find(id);
-        //    orderContext.Products.Remove(product);
-        //    orderContext.SaveChanges();
-        //    return RedirectToAction("Index");
-        //}
-        //protected override void Dispose(bool disposing)
-        //{
-        //    if (disposing)
-        //    {
-        //        orderContext.Dispose();
-        //    }
-        //    base.Dispose(disposing);
+        //    return View();
         //}
     }
 }

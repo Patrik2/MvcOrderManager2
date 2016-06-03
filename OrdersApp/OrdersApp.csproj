@@ -54,7 +54,7 @@
     <Compile Include="CartItemViewModel.cs" />
     <Compile Include="IndianaJones.cs" />
     <Compile Include="IOrderServices.cs" />
-    <Compile Include="IStorageCartController.cs" />
+    <Compile Include="ICartServices.cs" />
     <Compile Include="Migrations\201602260827192_oll.cs" />
     <Compile Include="Migrations\201602260827192_oll.Designer.cs">
       <DependentUpon>201602260827192_oll.cs</DependentUpon>
@@ -64,7 +64,6 @@
     <Compile Include="OrderItem.cs" />
     <Compile Include="OrderServices.cs" />
     <Compile Include="OrderManager.cs" />
-    <Compile Include="Class2.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="OrderContext.cs" />

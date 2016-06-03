@@ -7,7 +7,7 @@ namespace Test2.Models
 {
     public class CartItemViewModel
     {
-        public int ItemId { get; set; }
+        public int ProductItemId { get; set; }
         public int Quantity { get; set; }
         public double ItemPrice { get; set; }
     }

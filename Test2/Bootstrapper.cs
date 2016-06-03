@@ -27,7 +27,8 @@ namespace Test2
             container.RegisterType<IOrderManager, OrderManager>();
             container.RegisterType<IOrderContext, OrderContext>();
             container.RegisterType<IOrderServices, OrderServices>();
-            container.RegisterType<ICartController, CartController>();
+            container.RegisterType<ICartServices, CartServices>();
+            container.RegisterType<IStorageCart, StorageCart>();
             //container.RegisterType<IController, ProductsController>("Products");
 
             return container;
